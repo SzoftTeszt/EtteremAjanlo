@@ -10,6 +10,15 @@ export class AuthService {
   constructor(private afAuth: AngularFireAuth) { }
 
   googleAuth(){
+    return this.afAuth.signInWithPopup(new GoogleAuthProvider())
     return this.afAuth.signInWithRedirect(new GoogleAuthProvider())
+  }
+
+  getLoggedUser(){
+    return this.afAuth.authState
+  }
+
+  signOut(){
+    return this.afAuth.signOut()
   }
 }

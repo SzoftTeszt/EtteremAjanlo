@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,12 +9,13 @@ import { AuthService } from '../auth.service';
 })
 export class SignUpComponent {
 
-  constructor(private auth:AuthService){
+  constructor(private auth:AuthService,
+    private router:Router){
 
   }
 
   googleAuth(){
-    this.auth.googleAuth()
+    this.auth.googleAuth().then(()=>this.router.navigate(['/ajanlo']))
   }
 
 }

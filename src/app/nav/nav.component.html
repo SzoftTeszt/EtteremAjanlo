@@ -20,6 +20,10 @@
             <a class="nav-link" routerLink="/signup">Regisztráció</a>
           </li>
 
+          <li *ngIf="user" class="nav-item">
+            <a class="nav-link" (click)="signOut()">Kilépés</a>
+          </li>
+
         </ul>
 
       </div>
