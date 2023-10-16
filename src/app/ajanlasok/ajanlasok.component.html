@@ -1,1 +1,11 @@
-<p>ajanlasok works!</p>
+<div class="form-floating">
+    <textarea [(ngModel)]="newKritika" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+    <label for="floatingTextarea">Comments</label>
+  </div>
+  <button [disabled]="!user" (click)="ment()" type="button" class="btn btn-warning">Save</button>
+
+  <ng-container *ngFor="let uzi of kritikak">
+    <div>{{uzi.szerzo}}</div>
+    <div>{{uzi.etterem}}</div>
+    <div>{{uzi.velemeny}}</div>
+  </ng-container>
