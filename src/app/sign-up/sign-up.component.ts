@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-
+  userEmail:any=""
+  pass1:any=""
+  pass2:any=""
   constructor(private auth:AuthService,
     private router:Router){
 
@@ -16,6 +18,24 @@ export class SignUpComponent {
 
   googleAuth(){
     this.auth.googleAuth().then(()=>this.router.navigate(['/ajanlo']))
+  }
+
+  signUp(){
+    this.auth.signUp(this.userEmail, this.pass1)
+    .then(()=>
+    {
+    console.log("Sikeres regiszráció!")
+    this.auth.sendVerificationEmail()
+    }
+    )
+    .catch((e)=>console.log("Reg Hiba:",e))
+  }
+  
+  validUser(){
+    console.log(this.userEmail?.length);
+    if (this.userEmail?.length==0 || this.pass1?.length==0) return true;
+    if (this.pass1 != this.pass2) return true;
+    return false;
   }
 
 }

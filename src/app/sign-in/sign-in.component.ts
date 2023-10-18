@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent {
+  password:any;
+  userEmail:any;
+
+
   constructor(private auth:AuthService, 
     private router:Router){
 
@@ -21,6 +25,12 @@ export class SignInComponent {
       }      
       )
       .catch((e)=>console.log("Hiba:",e))
+  }
+
+  signIn(){
+    this.auth.signIn(this.userEmail, this.password)
+    .then(()=>console.log("Sikeres belépés"))
+    .catch((e)=>console.log("Hiba a belépésnél",e))
   }
 
 }

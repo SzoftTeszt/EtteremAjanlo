@@ -13,6 +13,7 @@ import { AjanlasokComponent } from './ajanlasok/ajanlasok.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { Environments } from './environments';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { Environments } from './environments';
     NavComponent,
     AjanlasokComponent,
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
