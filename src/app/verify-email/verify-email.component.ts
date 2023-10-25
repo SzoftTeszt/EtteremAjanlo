@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-verify-email',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./verify-email.component.css']
 })
 export class VerifyEmailComponent {
+
+  constructor(private auth:AuthService){}
+
+  reSendVerification(){
+    this.auth.sendVerificationEmail()
+  }
 
 }

@@ -1,2 +1,19 @@
-Thank You for Registering
-<button routerLink="/signin" type="button" class="btn btn-primary">Log In</button>
+<div class="card">
+     <div class="card-body">
+      <h5 class="card-title">Thank You for Registering</h5>
+      <p class="card-text">
+        We have sent confirmation email.
+      </p>
+      <p class="card-text">
+        Please check your email and click the link to verify email address.
+      </p>
+      <button (click)="reSendVerification()" class="btn btn-primary">Resend Verification email</button>
+      <div class="my-3">
+        <p>Go back to?</p>
+        <button routerLink="/signin" type="button" class="btn btn-primary">
+            Log In</button>
+      </div>
+    </div>
+  </div>
+
+

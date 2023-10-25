@@ -41,4 +41,9 @@ export class AuthService {
   signOut(){
     return this.afAuth.signOut()
   }
+
+  forgotPassword(email:any){
+    return this.afAuth.sendPasswordResetEmail(email)
+  }
+
 }
