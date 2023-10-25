@@ -11,7 +11,8 @@ import { AuthService } from '../auth.service';
 export class AjanlasokComponent {
   user:any
   newKritika:any
-  kritikak:any;
+  kritikak:any
+  users:any
 
   constructor(private base:BaseService, private auth:AuthService){
     this.base.get().snapshotChanges().pipe(
@@ -30,6 +31,11 @@ export class AjanlasokComponent {
         error: (e)=>console.log("Hibás belépés: ",e)
       }
     )
+
+    this.auth.getUsers()
+
+
+
   }
 
   ment(){
