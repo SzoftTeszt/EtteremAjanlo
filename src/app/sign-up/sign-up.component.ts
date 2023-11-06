@@ -17,15 +17,32 @@ export class SignUpComponent {
   }
 
   googleAuth(){
-    this.auth.googleAuth().then(()=>this.router.navigate(['/ajanlo']))
+    this.auth.googleAuth().then((user)=>{       
+        if (user)
+        {
+          console.log("Sikeres google regiszráció! (uid)", user)
+          user.user?.getIdToken().then(
+            (token)=>{
+              this.auth.setDefaultClaims(user.user?.uid,token) 
+              this.router.navigate(['/ajanlo'])
+            }
+          )          
+        }
+        
+    }
+    )
   }
 
   signUp(){
     this.auth.signUp(this.userEmail, this.pass1)
-    .then(()=>
+    .then((user)=>
     {
-    console.log("Sikeres regiszráció!")
-    this.auth.sendVerificationEmail()
+      user.user?.getIdToken().then(
+        (token)=>{
+          this.auth.setDefaultClaims(user.user?.uid,token) 
+          console.log("Sikeres regiszráció!", user)
+          this.auth.sendVerificationEmail()
+        })      
     }
     )
     .catch((e)=>console.log("Reg Hiba:",e))
@@ -37,5 +54,7 @@ export class SignUpComponent {
     if (this.pass1 != this.pass2) return true;
     return false;
   }
+
+
 
 }

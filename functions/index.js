@@ -4,7 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-const serviceAccount = require('./etteremajanlo-22864-firebase-adminsdk-sogsi-d8c4868445.json');
+const serviceAccount = require('./etteremajanlo-22864-firebase-adminsdk-sogsi-3aeb9fbb3d.json');
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
   databaseURL: "https://etteremajanlo-22864-default-rtdb.europe-west1.firebasedatabase.app"

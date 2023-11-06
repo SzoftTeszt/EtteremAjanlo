@@ -5,6 +5,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { UsersComponent } from './users/users.component';
 
 const routes: Routes = [
   {path:"signup", component:SignUpComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:"ajanlo", component:AjanlasokComponent},
   {path:"verifyemail", component:VerifyEmailComponent},
   {path:"forgotpassword", component:ForgotPasswordComponent},
+  {path:"users", component:UsersComponent},
   {path:"", redirectTo:'ajanlo', pathMatch:"full"},
   {path:"**", redirectTo:'ajanlo', pathMatch:"full"},
 ];
